@@ -28,7 +28,7 @@ def __convert_to_ascii(text):
 
     # Normalize unicode characters
     if sys.version_info[0] < 3:
-        text = unicode(text) # NOQA
+        text = unicode(text)  # NOQA
 
     text = unicodedata.normalize('NFKD', text)
     text = text.encode('ascii', 'ignore').decode('utf-8')
@@ -47,4 +47,11 @@ def __remove_noise(text):
     words = text.split()
     noise_free_words = [word for word in words if word not in noise_list]
     text = " ".join(noise_free_words)
+    return text
+
+
+def pre_process(text):
+    text = __clean_whitespace(text)
+    text = __convert_to_ascii(text)
+    text = __remove_noise(text)
     return text
