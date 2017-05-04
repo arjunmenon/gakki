@@ -38,8 +38,53 @@ the training time.
 This part will introduce three main components of Gakki.
 ![Chatterbot: Machine learning in Python](https://github.com/callmeshabi/gakki/blob/master/figure/archit.png)
 ### Architecture
-#### Brain
 #### Mouth and Ear
+Mouth is the first component of the chat bot. It basic function is to get input from terminal,
+After that, it will preprocess the input and store it in the Memory.
+##### 1. CLean whitespace and Convert to ASCII
+The first step is to any consecutive whitespace characters from the text and Converts unicode characters to 
+ASCII character equivalents.
+##### 2. Remove Noise
+Any text that is independent of the data context and the final output can be sentenced to noise.
+The general practice of removing noise is to prepare a dictionary of noise entities, one by one on the text object (or 
+word by word) iteration, to eliminate the noise dictionary appears in the label.
+
+Here is the python code:
+~~~~
+def __remove_noise(text):
+    """    
+    :param text: 
+    :return: noise_free_text
+    """
+    # may update in the future
+    noise_list = ["is", "a", "this", "..."]
+    words = text.split()
+    noise_free_words = [word for word in words if word not in noise_list]
+    text = " ".join(noise_free_words)
+    return text
+~~~~
+#### 3. Standard text
+Text data often contains words or phrases that do not appear in any standard dictionary. Both search engines and models
+can not recognize these.
+
+For example, acronyms, vocabulary labels and popular slang. This type of noise can be repaired by regular expressions 
+and manually prepared data dictionaries. The following code uses the dictionary lookup method to replace the social 
+slang in the text.
+
+Here is the python code:
+~~~~
+def __lookup_words(text):
+    words = text.split() 
+    new_words = [] 
+    for word in words:
+        if word.lower() in lookup_dict:
+            word = lookup_dict[word.lower()]
+        new_words.append(word) new_text = " ".join(new_words) 
+        return new_text
+~~~~
+Currently, the lookup_dict is from NLTK, a suite of libraries and programs for symbolic and statistical natural language
+processing (NLP) 
+#### Brain
 ### Discussions
 
 ## Related Work
