@@ -36,7 +36,7 @@ the training time.
 
 ## Design Overview
 This part will introduce three main components of Gakki.
-![Chatterbot: Machine learning in Python](https://github.com/callmeshabi/gakki/blob/master/figure/archit.png)
+![Chatterbot: Machine learning in Python](figure/archit.png)
 ### Architecture
 #### Mouth and Ear
 Mouth is the first component of the chat bot. It basic function is to get input from terminal,
