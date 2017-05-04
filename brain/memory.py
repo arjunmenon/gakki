@@ -6,6 +6,7 @@ class Memory(object):
     Class memory will processing one statement and store it 
     """
     conversations = []
+    output_conversations = []
 
     def __init__(self, text, **kwargs):
 

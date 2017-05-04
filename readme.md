@@ -144,6 +144,9 @@ words, it can't produce any new sentence.
 ### NLTK
 Natural Language Processing Toolkit is the most commonly used Python library in the NLP field. NLTK has a chat package.
 With the help of the package, people can build a rules-based chat bot in a some simple efforts.
-## Future Work
+# Future Work
 - Finish the train part
 - Integrate with Django and put a small demo on the AWS
+# License
+ChatterBot is licensed under the [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause).
+# Reference
