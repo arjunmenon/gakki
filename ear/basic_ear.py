@@ -8,11 +8,13 @@ class Ear(object):
     A simple ear that allows ChatterBot to
     communicate through the terminal.
     """
+    def __init__(self):
+        self.user_input = []
 
     def process_input(self, *args, **kwargs):
         """
         Read the user's input from the terminal.
         """
-        user_input = utils.input_function()
-        Memory(user_input)
-        return user_input
+        self.user_input = utils.input_function()
+        Memory(self.user_input)
+        return self.user_input

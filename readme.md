@@ -1,6 +1,6 @@
 # Gakki
 
-I have designed and implemented a mixed architecture chat bot. I named it Gakki.
+Gakki is a mixed architecture chat bot. It was designed to simulate dialogues with human. 
 
 An example of typical input would be some thing like this:
 
@@ -24,10 +24,15 @@ name part the corresponding name in human body, which increases code's readabili
 level.
 ### Simple
 I don't have time to write a complicated chat bot. Also, I don't expect the chat bot to 
-speak many languages or serve various goals and purposes. I just want to do one task and
-make it done in a short time.
+speak many languages or serve various goals and purposes. Apart from designs, its implementation
+also should be as simple. For example, I don't need to re-implement some deep learning 
+library.
 ### Mixed Model
-Existing chat bots are either rules-based or corpus-based.
+Existing chat bots are either rules-based or corpus-based. Rule-based models are good at handling
+situations which were defined before. But every rules need to be pre-defined before. Corpus-based
+model typically use deep learning to predict the next sentence. However, it need to be trained 
+before. For some sentence like "What is the time", the accuracy won't increase even prolong
+the training time.
 
 ## Design Overview
 ### Assumption
