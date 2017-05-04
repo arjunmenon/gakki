@@ -36,7 +36,7 @@ the training time.
 
 ## Design Overview
 This part will introduce three main components of Gakki.
-
+![Chatterbot: Machine learning in Python](https://github.com/callmeshabi/gakki/blob/master/figure/archit.png)
 ### Architecture
 #### Brain
 #### Mouth and Ear
