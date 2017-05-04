@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from . import utils
-
+from .ear import Ear
 
 class ChatterBot(object):
     """
@@ -12,7 +12,7 @@ class ChatterBot(object):
         self.conversations = []
 
     def listen(self):
-        self.conversations.append(utils.input_function())
+        self.conversations.append(Ear.process_input())
 
     def speak(self):
         pass
