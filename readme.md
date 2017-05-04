@@ -83,9 +83,53 @@ def __lookup_words(text):
         return new_text
 ~~~~
 Currently, the lookup_dict is from NLTK, a suite of libraries and programs for symbolic and statistical natural language
-processing (NLP) 
+processing (NLP).
 #### Brain
-### Discussions
+Brain component has two parts, the first part is going to use regular expression to match the input sentences that are 
+stored in the queue. If it matches, then the regular expression  part will export the sentence to the ouput queue that
+are in the Memory. If not, the LSTM-RNN part will process the statement.
+##### Regular Expression
+Regular Expression was designed to respond some fixed structure sentence like "What is the time?", "100-93=?". LSTM-RNN
+models aren't good at handling these kinds of questions.
+
+Some codes of the part from the existing projects on the GitHub.
+#### LSTM-RNN
+LSTM (Long Short Tem Memory) is a special recurrent neural network, its particularity is that its neuron design can save 
+the historical memory, which can solve the natural language processing of statistical methods can only consider the 
+recent n words and ignore The question of the words before the longer.
+
+I referred to the code from (https://iamtrask.github.io/2015/11/15/anyone-can-code-lstm/ "LSTM").
+In order to be able to apply word vectors, we use word2vec to generate word vectors.
+~~~
+def __predict_nextword():
+    init_seq()
+    xlist = []
+    ylist = []
+    test_X = None
+    #for i in range(len(seq)-100):
+    for i in range(10):
+        sequence = seq[i:i+20]
+        xlist.append(sequence)
+        ylist.append(seq[i+20])
+        if test_X is None:
+            test_X = np.array(sequence)
+            (match_word, max_cos) = vector2word(seq[i+20])
+            print "right answer=", match_word, max_cos
+
+    X = np.array(xlist)
+    Y = np.array(ylist)
+    net = tflearn.input_data([None, 20, 200])
+    net = tflearn.lstm(net, 200)
+    net = tflearn.fully_connected(net, 200, activation='linear')
+    net = tflearn.regression(net, optimizer='sgd', learning_rate=0.1,
+                                     loss='mean_square')
+    model = tflearn.DNN(net)
+    model.fit(X, Y, n_epoch=500, batch_size=10,snapshot_epoch=False,show_metric=True)
+    model.save("model")
+    predict = model.predict([test_X])
+    return predict
+~~~
+#### Problem
 
 ## Related Work
 ### ChatterBot
