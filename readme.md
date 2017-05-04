@@ -93,7 +93,7 @@ Regular Expression was designed to respond some fixed structure sentence like "W
 models aren't good at handling these kinds of questions.
 
 Some codes of the part from the existing projects on the GitHub.
-#### LSTM-RNN
+##### LSTM-RNN
 LSTM (Long Short Tem Memory) is a special recurrent neural network, its particularity is that its neuron design can save 
 the historical memory, which can solve the natural language processing of statistical methods can only consider the 
 recent n words and ignore The question of the words before the longer.
@@ -129,13 +129,21 @@ def __predict_nextword():
     predict = model.predict([test_X])
     return predict
 ~~~
-#### Problem
+### Problem
+Currently the main problem for the project is to find enough dataset to train the models. Initially, I thought NLTK
+may provide enough corpus. However, few of them are conversations. Recently, I realized I could use movie subtitle.
+Maybe I will do it in the future.
 
 ## Related Work
 ### ChatterBot
-### NLTK
-## Future Work
-This is [an example][id] reference-style link.
+ChatterBot is a machine-learning based conversational dialog engine build in Python which makes it possible to generate 
+responses based on collections of known conversations. Due to its design, it to be trained to speak any language.
 
-This is [an example](http://example.com/ "Title") inline link.
-[id]: http://example.com/  "Optional Title Here"
+The main limitations of the ChatterBot is that it can only speak the sentence that was used to it before. In other
+words, it can't produce any new sentence.
+### NLTK
+Natural Language Processing Toolkit is the most commonly used Python library in the NLP field. NLTK has a chat package.
+With the help of the package, people can build a rules-based chat bot in a some simple efforts.
+## Future Work
+- Finish the train part
+- Integrate with Django and put a small demo on the AWS
