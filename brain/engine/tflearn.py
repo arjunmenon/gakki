@@ -11,6 +11,7 @@ max_w = 50
 float_size = 4
 word_vector_dict = {}
 
+
 def load_vectors(input):
     print "begin load vectors"
 
@@ -41,15 +42,13 @@ def load_vectors(input):
             (weight,) = struct.unpack('f', m)
             vector.append(weight)
 
-        # 将词及其对应的向量存到dict中
         word_vector_dict[word.decode('utf-8')] = vector
 
     input_file.close()
     print "load vectors finish"
 
+
 def init_seq():
-    """读取切好词的文本文件，加载全部词序列
-    """
     file_object = open('zhenhuanzhuan.segment', 'r')
     vocab_dict = {}
     while True:
@@ -92,7 +91,7 @@ def vector2word(vector):
     return (match_word, max_cos)
 
 
-def main():
+def calculate():
     load_vectors("./vectors.bin")
     init_seq()
     xlist = []
