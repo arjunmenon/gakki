@@ -1,6 +1,6 @@
 # Gakki
 
-Gakki is a mixed architecture chat bot. It was designed to simulate dialogues with human. 
+Gakki is a mixed architecture chat bot. It was designed to simulate conducting dialogues with humans. 
 
 An example of typical input would be some thing like this:
 
@@ -35,7 +35,8 @@ before. For some sentence like "What is the time", the accuracy won't increase e
 the training time.
 
 ## Design Overview
-### Assumption
+This part will introduce three main components of Gakki.
+
 ### Architecture
 #### Brain
 #### Mouth and Ear
