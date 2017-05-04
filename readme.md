@@ -23,9 +23,11 @@ by cognitive science, I was wondering if I could imitate how human minds work. I
 name part the corresponding name in human body, which increases code's readability and abstraction
 level.
 ### Simple
-I don't 
-### Machine-Learning Based
-### Focus Goal
+I don't have time to write a complicated chat bot. Also, I don't expect the chat bot to 
+speak many languages or serve various goals and purposes. I just want to do one task and
+make it done in a short time.
+### Mixed Model
+Existing chat bots are either rules-based or corpus-based.
 
 ## Design Overview
 ### Assumption
